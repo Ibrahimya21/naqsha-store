@@ -1,0 +1,641 @@
+@import url("./payment-card.css?v=20260423-7");
+
+/* =========================
+   Payment Methods
+========================= */
+
+.payment-methods-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 18px 0 24px;
+}
+
+.payment-method-card {
+  position: relative;
+  width: 100%;
+  min-height: 130px;
+  border: 1px solid rgba(11, 103, 88, 0.14);
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  text-align: right;
+  cursor: pointer;
+  transition: 0.22s ease;
+  color: #14322f;
+  font-family: inherit;
+}
+
+.payment-method-card:hover {
+  border-color: #0b6758;
+  background: #f7fbfa;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(11, 103, 88, 0.1);
+}
+
+.payment-method-card.is-active {
+  border-color: #0b6758;
+  background:
+    radial-gradient(circle at top left, rgba(11, 103, 88, 0.11), transparent 35%),
+    linear-gradient(180deg, #f3fbf8 0%, #ffffff 100%);
+  box-shadow: 0 16px 36px rgba(11, 103, 88, 0.14);
+}
+
+.payment-method-check {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #cbd9d5;
+  border-radius: 50%;
+  background: #ffffff;
+  transition: 0.2s ease;
+}
+
+.payment-method-card.is-active .payment-method-check {
+  border-color: #0b6758;
+  background: #0b6758;
+  box-shadow: inset 0 0 0 5px #ffffff;
+}
+
+.payment-method-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: #eef8f5;
+  color: #0b6758;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+.payment-method-card.is-active .payment-method-icon {
+  background: #d8ece7;
+}
+
+.payment-method-content {
+  display: grid;
+  gap: 5px;
+}
+
+.payment-method-content strong {
+  color: #14322f;
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.payment-method-content small {
+  color: #63716e;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* =========================
+   Payment Info Card
+========================= */
+
+.payment-info-card {
+  margin: 22px 0 26px;
+  padding: 24px;
+  border: 1px solid rgba(11, 103, 88, 0.16);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at top left, rgba(11, 103, 88, 0.09), transparent 34%),
+    linear-gradient(180deg, #ffffff 0%, #f7fbfa 100%);
+}
+
+.payment-info-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.payment-info-badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  border-radius: 999px;
+  background: #d8ece7;
+  color: #0b6758;
+  padding: 7px 13px;
+  font-weight: 900;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+
+.payment-info-head h2 {
+  margin: 0 0 8px;
+  color: #14322f;
+  font-size: 1.45rem;
+  font-weight: 900;
+}
+
+.payment-info-head p {
+  margin: 0;
+  color: #63716e;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.payment-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.payment-info-item {
+  padding: 16px;
+  border: 1px solid rgba(11, 103, 88, 0.11);
+  border-radius: 18px;
+  background: #ffffff;
+  display: grid;
+  gap: 8px;
+}
+
+.payment-info-item span {
+  color: #667573;
+  font-size: 0.9rem;
+}
+
+.payment-info-item strong {
+  color: #0b3d37;
+  font-size: 1rem;
+  font-weight: 900;
+  word-break: break-word;
+}
+
+/* =========================
+   Form Helpers
+========================= */
+
+.required-star {
+  color: #d92c2c;
+}
+
+.checkout-field.is-error input {
+  border-color: #ff3030;
+  box-shadow: 0 0 0 3px rgba(255, 48, 48, 0.08);
+}
+
+.checkout-error {
+  margin: 8px 0 3px;
+  color: #ff3030;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.checkout-help {
+  margin: 0;
+  color: #8d9795;
+  font-size: 0.88rem;
+}
+
+/* =========================
+   Upload Box
+========================= */
+
+.checkout-upload-box {
+  min-height: 154px;
+  border: 1px dashed #cfdad6;
+  border-radius: 16px;
+  background: #fbfcfb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 26px 18px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.checkout-upload-box:hover {
+  border-color: #0b6758;
+  background: #f6fbf9;
+}
+
+.checkout-upload-icon {
+  width: 44px;
+  height: 44px;
+  color: #9db4ae;
+}
+
+.checkout-upload-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.checkout-upload-text {
+  color: #344340;
+  font-weight: 800;
+}
+
+.checkout-upload-box small {
+  color: #8d9795;
+}
+
+/* =========================
+   Legacy Support
+   في حال بقي شيء من الكلاسات القديمة
+========================= */
+
+.transfer-bank-card {
+  margin-bottom: 24px;
+  padding: 24px;
+  border: 1px solid rgba(11, 103, 88, 0.16);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at top left, rgba(11, 103, 88, 0.08), transparent 34%),
+    linear-gradient(180deg, #ffffff 0%, #f7fbfa 100%);
+}
+
+.transfer-bank-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.transfer-bank-head strong {
+  color: #14322f;
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.transfer-bank-head span {
+  color: #63716e;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.transfer-bank-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.transfer-bank-item {
+  padding: 16px;
+  border: 1px solid rgba(11, 103, 88, 0.11);
+  border-radius: 18px;
+  background: #ffffff;
+}
+
+.transfer-bank-item span {
+  display: block;
+  margin-bottom: 8px;
+  color: #667573;
+  font-size: 0.88rem;
+}
+
+.transfer-bank-item strong {
+  color: #0b3d37;
+  font-size: 1rem;
+  font-weight: 900;
+  word-break: break-word;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 960px) {
+  .payment-methods-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-info-grid,
+  .transfer-bank-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-method-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+
+  .payment-info-card,
+  .transfer-bank-card {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .payment-info-head,
+  .transfer-bank-head {
+    flex-direction: column;
+  }
+
+  .payment-info-head h2 {
+    font-size: 1.25rem;
+  }
+}
+
+/* إصلاح ترتيب رأس صفحة الدفع */
+.checkout-panel-head {
+  display: block !important;
+}
+
+.checkout-panel-head>div:first-child {
+  margin-bottom: 22px;
+}
+
+/* كروت طرق الدفع */
+.payment-methods-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+  gap: 16px;
+  margin: 20px 0 28px;
+  width: 100%;
+}
+
+.payment-method-card {
+  position: relative;
+  min-height: 145px;
+  border: 1px solid rgba(11, 103, 88, 0.16);
+  background: #fff;
+  border-radius: 24px;
+  padding: 22px 18px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 14px;
+  text-align: right;
+  cursor: pointer;
+  transition: 0.22s ease;
+  color: #14322f;
+  font-family: inherit;
+}
+
+.payment-method-card:hover {
+  border-color: #0b6758;
+  background: #f7fbfa;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(11, 103, 88, 0.1);
+}
+
+.payment-method-card.is-active {
+  border-color: #0b6758;
+  background:
+    radial-gradient(circle at top left, rgba(11, 103, 88, 0.11), transparent 35%),
+    linear-gradient(180deg, #f3fbf8 0%, #ffffff 100%);
+  box-shadow: 0 16px 36px rgba(11, 103, 88, 0.14);
+}
+
+.payment-method-check {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #cbd9d5;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.payment-method-card.is-active .payment-method-check {
+  border-color: #0b6758;
+  background: #0b6758;
+  box-shadow: inset 0 0 0 5px #fff;
+}
+
+.payment-method-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+  background: #eef8f5;
+  color: #0b6758;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+}
+
+.payment-method-content {
+  display: grid;
+  gap: 8px;
+  padding-inline-end: 8px;
+}
+
+.payment-method-content strong {
+  color: #14322f;
+  font-size: 1.08rem;
+  font-weight: 900;
+  line-height: 1.6;
+}
+
+.payment-method-content small {
+  color: #63716e;
+  font-size: 0.92rem;
+  line-height: 1.8;
+}
+
+/* كرت بيانات التحويل */
+.payment-info-card {
+  width: 100%;
+  margin: 0 0 28px;
+  padding: 28px;
+  border: 1px solid rgba(11, 103, 88, 0.16);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top left, rgba(11, 103, 88, 0.09), transparent 34%),
+    linear-gradient(180deg, #ffffff 0%, #f7fbfa 100%);
+}
+
+.payment-info-head {
+  margin-bottom: 22px;
+}
+
+.payment-info-badge {
+  display: inline-flex;
+  width: fit-content;
+  border-radius: 999px;
+  background: #d8ece7;
+  color: #0b6758;
+  padding: 8px 16px;
+  font-weight: 900;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.payment-info-head h2 {
+  margin: 0 0 10px;
+  color: #14322f;
+  font-size: 1.7rem;
+  font-weight: 900;
+}
+
+.payment-info-head p {
+  margin: 0;
+  color: #63716e;
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.payment-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.payment-info-item {
+  padding: 18px;
+  border: 1px solid rgba(11, 103, 88, 0.11);
+  border-radius: 20px;
+  background: #fff;
+  display: grid;
+  gap: 10px;
+}
+
+.payment-info-item span {
+  color: #667573;
+  font-size: 0.92rem;
+}
+
+.payment-info-item strong {
+  color: #0b3d37;
+  font-size: 1.05rem;
+  font-weight: 900;
+  word-break: break-word;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .payment-methods-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-method-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .payment-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-info-card {
+    padding: 20px;
+    border-radius: 22px;
+  }
+
+  .payment-info-head h2 {
+    font-size: 1.35rem;
+  }
+}
+/* Better order details in payment page */
+.checkout-summary-product {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(17, 35, 33, 0.08);
+}
+
+.checkout-summary-image {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  object-fit: cover;
+  background: #f3f6f5;
+  border: 1px solid rgba(11, 103, 88, 0.1);
+}
+
+.checkout-summary-product-info {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.checkout-summary-product-info strong {
+  color: #14322f;
+  font-weight: 900;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.checkout-summary-product-info p {
+  margin: 0;
+  color: #667573;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 540px) {
+  .checkout-summary-product {
+    grid-template-columns: 56px minmax(0, 1fr);
+  }
+
+  .checkout-summary-product > span {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .checkout-summary-image {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+/* Final payment form fixes */
+.readonly-field,
+.checkout-field input[readonly] {
+  background: #f4f7f6;
+  color: #54615f;
+  cursor: not-allowed;
+  border-style: dashed;
+}
+
+.payment-transfer-page #paid-amount {
+  font-weight: 900;
+  color: #0b3d37;
+  background: #ffffff;
+}
+
+.payment-transfer-page .checkout-summary-item-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  margin-top: 2px;
+}
+
+.payment-transfer-page .checkout-summary-item-meta p,
+.payment-transfer-page .checkout-summary-item-meta span {
+  margin: 0;
+  white-space: nowrap;
+  font-size: 0.94rem;
+}
+
+.payment-transfer-page .checkout-summary-item-meta span {
+  color: #0b3d37;
+  font-weight: 900;
+}
+
+.payment-transfer-page .checkout-summary-product {
+  border-bottom: 1px solid rgba(17, 35, 33, 0.08);
+}
+
+@media (max-width: 540px) {
+  .payment-transfer-page .checkout-summary-item-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
+  }
+}

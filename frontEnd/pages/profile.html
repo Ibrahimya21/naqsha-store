@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تغيير كلمة السر - نقشة</title>
+
+  <link rel="stylesheet" href="../assets/css/base.css?v=20260511-final" />
+  <link rel="stylesheet" href="../assets/css/feedback.css?v=20260511-final" />
+  <link rel="stylesheet" href="../assets/css/profile.css?v=20260511-final" />
+  <link rel="stylesheet" href="../assets/css/responsive.css?v=20260511-mobile" />
+</head>
+
+<body class="profile-page password-page">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">نقشة</a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="فتح القائمة"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        data-nav-toggle
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span class="sr-only">فتح القائمة</span>
+      </button>
+
+      <nav class="nav" id="site-nav" data-nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="index.html#men">رجال</a>
+        <a href="index.html#women">نساء</a>
+        <a href="index.html#kids">أطفال</a>
+      </nav>
+
+      <div class="icon-links">
+        <a class="icon-btn" href="search.html" aria-label="بحث">⌕</a>
+        <a class="icon-btn" href="cart.html" aria-label="السلة">🛒</a>
+
+        <div class="user-menu-wrapper">
+          <button id="userMenuButton" class="user-menu-trigger" type="button">
+            <span id="userMenuLabel" class="user-menu-name">حسابي</span>
+            <span class="user-menu-icon">👤</span>
+          </button>
+
+          <div id="userDropdownMenu" class="user-dropdown-menu d-none">
+            <div class="user-dropdown-header">
+              <div id="dropdownUserName" class="dropdown-user-name">مستخدم</div>
+              <div id="dropdownUserRole" class="dropdown-user-role">مستخدم</div>
+            </div>
+
+            <a href="profile.html" id="profileLink" class="user-dropdown-item">
+              تغيير كلمة السر
+            </a>
+
+            <a href="admin-dash.html" id="adminDashboardLink" class="user-dropdown-item d-none">
+              لوحة التحكم
+            </a>
+
+            <button id="logoutButton" class="user-dropdown-item logout-item" type="button">
+              تسجيل الخروج
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="profile-section password-section">
+    <div class="container password-container">
+      <section class="password-hero-card">
+        <div class="password-avatar" id="profileAvatar">؟</div>
+        <div>
+          <p class="password-kicker" id="profileEmailTitle">—</p>
+          <h1 id="profileNameTitle">تغيير كلمة السر</h1>
+          <p>
+            حدّث كلمة السر الخاصة بحسابك للحفاظ على أمان طلباتك وبياناتك داخل متجر نقشة.
+          </p>
+        </div>
+      </section>
+
+      <section class="profile-card password-card" aria-labelledby="password-title">
+        <div class="password-card-head">
+          <div>
+            <h2 class="profile-card-title" id="password-title">تغيير كلمة السر</h2>
+            <p class="profile-note">
+              أدخل كلمة السر الحالية ثم كلمة السر الجديدة. إذا نسيت كلمة السر، استخدم صفحة الاستعادة.
+            </p>
+          </div>
+          <a class="btn btn-outline" href="forgot-password.html">نسيت كلمة السر؟</a>
+        </div>
+
+        <form class="profile-form" id="profilePasswordForm">
+          <div class="profile-field">
+            <label for="current-password">كلمة السر الحالية</label>
+            <input
+              id="current-password"
+              name="current_password"
+              type="password"
+              placeholder="••••••••"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+
+          <div class="profile-form-grid">
+            <div class="profile-field">
+              <label for="new-password">كلمة السر الجديدة</label>
+              <input
+                id="new-password"
+                name="new_password"
+                type="password"
+                placeholder="••••••••"
+                autocomplete="new-password"
+                minlength="6"
+                required
+              />
+            </div>
+
+            <div class="profile-field">
+              <label for="confirm-password">تأكيد كلمة السر الجديدة</label>
+              <input
+                id="confirm-password"
+                name="confirm_password"
+                type="password"
+                placeholder="••••••••"
+                autocomplete="new-password"
+                minlength="6"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="profile-actions password-actions">
+            <a href="index.html" class="btn btn-outline">العودة للرئيسية</a>
+            <button class="btn" type="submit" id="changePasswordBtn">
+              تغيير كلمة السر
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-copy">© <span data-year></span> نقشة. جميع الحقوق محفوظة.</div>
+
+      <div class="footer-brand-social">
+        <a class="brand" href="index.html">نقشة</a>
+
+        <div class="footer-social" aria-label="روابط التواصل الاجتماعي">
+          <a class="footer-social-link" href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M14 8.3V6.8c0-.7.5-1.2 1.2-1.2H17V2.4h-2.7c-3 0-4.6 1.8-4.6 4.7v1.2H7v3.4h2.7v9.9H14v-9.9h2.8l.5-3.4H14Z" />
+            </svg>
+          </a>
+
+          <a class="footer-social-link" href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M7.8 2.8h8.4a5 5 0 0 1 5 5v8.4a5 5 0 0 1-5 5H7.8a5 5 0 0 1-5-5V7.8a5 5 0 0 1 5-5Zm0 3a2 2 0 0 0-2 2v8.4a2 2 0 0 0 2 2h8.4a2 2 0 0 0 2-2V7.8a2 2 0 0 0-2-2H7.8Zm4.2 2.2a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm0 2.7a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6Zm4.4-2.9a1 1 0 1 1 0 2.1 1 1 0 0 1 0-2.1Z" />
+            </svg>
+          </a>
+
+          <a class="footer-social-link" href="#" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M4 3.5h4.9l4.1 5.8 5-5.8h2.6l-6.4 7.4 6.9 9.6h-4.9l-4.5-6.3-5.4 6.3H3.7l6.8-7.9L4 3.5Zm3.6 2 9.8 13h1.1l-9.8-13H7.6Z" />
+            </svg>
+          </a>
+
+          <a class="footer-social-link" href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M15.6 2.5c.3 2.5 1.7 4.1 4.1 4.3v3.5c-1.4.1-2.7-.3-4-1v5.8c0 3.7-2.3 6.2-5.9 6.2-3.4 0-5.7-2.2-5.7-5.3 0-3.4 2.7-5.8 6.3-5.4v3.6c-1.6-.5-2.8.3-2.8 1.7 0 1.2.9 2 2.2 2 1.4 0 2.2-.8 2.2-2.6V2.5h3.6Z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="../assets/js/user-menu.js"></script>
+  <script src="../assets/js/feedback.js?v=20260511-final"></script>
+    <script src="../assets/js/site.js?v=20260511-nav-footer"></script>
+  <script type="module" src="../assets/js/profile.js?v=20260511-final"></script>
+</body>
+</html>

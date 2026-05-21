@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>إنشاء حساب - نقشة</title>
+  <link rel="stylesheet" href="../assets/css/base.css?v=20260509-final" />
+  <link rel="stylesheet" href="../assets/css/feedback.css?v=20260509-final" />
+  <link rel="stylesheet" href="../assets/css/signup.css?v=20260509-final" />
+  <link rel="stylesheet" href="../assets/css/responsive.css?v=20260511-mobile" />
+</head>
+<body class="signup-page">
+  <main class="signup-shell">
+    <section class="signup-frame">
+      <aside class="signup-visual" aria-hidden="true"></aside>
+
+      <section class="signup-panel" aria-labelledby="signup-title">
+        <header class="signup-header">
+          <h1 id="signup-title">أنشئ حسابك في نقشة</h1>
+          <p class="signup-subtitle">أدخل بياناتك لإتمام التسجيل ومتابعة طلباتك وتفضيلاتك بسهولة.</p>
+        </header>
+
+        <form class="signup-form" id="signup-form">
+          <div class="signup-field">
+            <label for="signup-name">الاسم الكامل</label>
+            <input id="signup-name" type="text" placeholder="أدخل اسمك الكامل" autocomplete="name" required name="full_name" />
+          </div>
+
+          <div class="signup-field">
+            <label for="signup-email">البريد الإلكتروني</label>
+            <input id="signup-email" type="email" placeholder="أدخل بريدك الإلكتروني" autocomplete="email" required name="email" />
+          </div>
+
+          <div class="signup-field">
+            <label for="signup-password">كلمة السر</label>
+            <div class="signup-password-field">
+              <input
+                id="signup-password"
+                type="password"
+                placeholder="••••••••"
+                autocomplete="new-password"
+                data-password-input
+                required
+                name="password"
+              />
+              <button
+                class="signup-password-toggle"
+                type="button"
+                aria-label="إظهار كلمة السر"
+                aria-pressed="false"
+                aria-controls="signup-password"
+                data-password-toggle
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2.75 12C4.74 8.88 8.07 7 12 7s7.26 1.88 9.25 5c-1.99 3.12-5.32 5-9.25 5S4.74 15.12 2.75 12Z" />
+                  <circle cx="12" cy="12" r="2.8" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <label class="signup-check">
+            <input type="checkbox" required name="agree_to_terms" />
+            <span>أوافق على الشروط وسياسة الخصوصية</span>
+          </label>
+
+          <button class="signup-submit" type="submit">إنشاء الحساب</button>
+        </form>
+
+        <div class="signup-divider" aria-hidden="true"></div>
+        <p class="signup-login">لديك حساب بالفعل؟ <a href="login.html">تسجيل الدخول</a></p>
+      </section>
+    </section>
+  </main>
+
+  <script src="../assets/js/site.js?v=20260509-final"></script>
+  <script src="../assets/js/feedback.js?v=20260509-final"></script>
+  <script type="module" src="../assets/js/signup-page.js"></script>
+</body>
+</html>

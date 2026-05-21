@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الرئيسية - نقشة</title>
+  <link rel="stylesheet" href="../assets/css/base.css?v=20260511-final" />
+  <link rel="stylesheet" href="../assets/css/feedback.css?v=20260511-final" />
+  <link rel="stylesheet" href="../assets/css/home.css?v=20260509-final" />
+  <link rel="stylesheet" href="../assets/css/responsive.css?v=20260511-mobile" />
+</head>
+<body class="home-page">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">نقشة</a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="فتح القائمة"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        data-nav-toggle
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span class="sr-only">فتح القائمة</span>
+      </button>
+
+      <nav class="nav" id="site-nav" data-nav>
+        <a class="active" href="index.html">الرئيسية</a>
+        <a href="index.html#men">رجال</a>
+        <a href="index.html#women">نساء</a>
+        <a href="index.html#kids">أطفال</a>
+      </nav>
+
+      <div class="icon-links">
+        <a class="icon-btn" href="search.html" aria-label="بحث">⌕</a>
+        <a class="icon-btn" href="cart.html" aria-label="السلة">🛒</a>
+        <div class="user-menu-wrapper">
+  <button id="userMenuButton" class="user-menu-trigger" type="button">
+    <span id="userMenuLabel" class="user-menu-name">Ibrahim Awad</span>
+    <span class="user-menu-icon">👤</span>
+  </button>
+
+  <div id="userDropdownMenu" class="user-dropdown-menu d-none">
+    <div class="user-dropdown-header">
+      <div id="dropdownUserName" class="dropdown-user-name">Ibrahim Awad</div>
+      <div id="dropdownUserRole" class="dropdown-user-role">مستخدم</div>
+    </div>
+
+    <a href="profile.html" id="profileLink" class="user-dropdown-item d-none">
+      تغيير كلمة السر
+    </a>
+
+    <a href="admin-dash.html" id="adminDashboardLink" class="user-dropdown-item d-none">
+      لوحة التحكم
+    </a>
+
+    <button id="logoutButton" class="user-dropdown-item logout-item d-none" type="button">
+      تسجيل الخروج
+    </button>
+  </div>
+</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-layout">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <span class="hero-eyebrow">تصاميم يومية بهوية هادئة</span>
+            <h1>فخامة هادئة<br />تتقنها الحرفة</h1>
+            <p>نعيد رسم ملامح الأناقة العصرية عبر قطع أساسية خالدة وخامات منتقاة بعناية لتبقى أقرب إلى ذوقك كل يوم.</p>
+
+            <div class="hero-actions">
+              <a class="btn" href="#men">استكشف المجموعة</a>
+              <a class="btn btn-outline hero-outline" href="#women">تسوّق الآن</a>
+            </div>
+
+            <div class="hero-stats">
+              <div class="hero-stat">
+                <strong data-total-pieces>+0</strong>
+                <span>قطعة مختارة</span>
+              </div>
+              <div class="hero-stat">
+                <strong>24h</strong>
+                <span>تجهيز سريع</span>
+              </div>
+              <div class="hero-stat">
+                <strong>100%</strong>
+                <span>خامات أصلية</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section categories-section">
+      <div class="container">
+        <div class="home-section-head">
+          <div>
+            <span class="eyebrow">الفئات الرئيسية</span>
+            <h2 class="section-title">تسوّق بحسب الإطلالة التي تناسبك</h2>
+          </div>
+          <p class="section-subtitle">لغة بصرية موحّدة وتجربة سهلة على كل المقاسات لتصل إلى القسم المناسب بسرعة ووضوح.</p>
+        </div>
+
+        <div class="categories">
+          <a class="category-card" href="#men">
+            <div class="category-card__content">
+              <h3>MEN</h3>
+              <p>قصّات عملية وخامات مرتبة لحضور يومي أنيق.</p>
+              <span class="category-card__link">تسوّق الرجال</span>
+            </div>
+          </a>
+
+          <a class="category-card" href="#women">
+            <div class="category-card__content">
+              <h3>نساء</h3>
+              <p>تفاصيل ناعمة بلمسة فاخرة تناسب كل المواسم.</p>
+              <span class="category-card__link">تسوّق النساء</span>
+            </div>
+          </a>
+
+          <a class="category-card" href="#kids">
+            <div class="category-card__content">
+              <h3>KIDS</h3>
+              <p>ألوان هادئة وراحة عالية للحركة اليومية.</p>
+              <span class="category-card__link">تسوّق الأطفال</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="men">
+      <div class="container">
+        <div class="home-section-head">
+          <div>
+            <span class="eyebrow">رجال</span>
+            <h2 class="section-title">مختارات رجالية بخطوط نظيفة</h2>
+          </div>
+          <p class="section-subtitle">تجسد ملابسنا الرجالية قمة التوازن بين العملية، نعومة الخامات، وروعة الإتقان الحرفي.</p>
+        </div>
+
+        <div class="products" data-product-grid="men"></div>
+      </div>
+    </section>
+
+    <section class="section" id="women">
+      <div class="container">
+        <div class="home-section-head">
+          <div>
+            <span class="eyebrow">نساء</span>
+            <h2 class="section-title">إطلالات ناعمة بروح معاصرة</h2>
+          </div>
+          <p class="section-subtitle">مجموعة مختارة توازن بين الفخامة والنعومة في صور أقرب إلى مرجع التصميم وأوضح على الشاشات الصغيرة.</p>
+        </div>
+
+        <div class="products" data-product-grid="women"></div>
+      </div>
+    </section>
+
+    <section class="section" id="kids">
+      <div class="container">
+        <div class="home-section-head">
+          <div>
+            <span class="eyebrow">أطفال</span>
+            <h2 class="section-title">قطع مرحة براحة عالية</h2>
+          </div>
+          <p class="section-subtitle">اختيارات واعية للأطفال بخامات مريحة، ألوان هادئة، وتخطيط متجاوب يظل واضحًا على كل الشاشات.</p>
+        </div>
+
+        <div class="products" data-product-grid="kids"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-copy">© <span data-year></span> نقشة. جميع الحقوق محفوظة.</div>
+
+      <div class="footer-brand-social">
+        <a class="brand" href="index.html">نقشة</a>
+
+        <div class="footer-social" aria-label="روابط التواصل الاجتماعي">
+          <a class="footer-social-link" href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M14 8.3V6.8c0-.7.5-1.2 1.2-1.2H17V2.4h-2.7c-3 0-4.6 1.8-4.6 4.7v1.2H7v3.4h2.7v9.9H14v-9.9h2.8l.5-3.4H14Z" />
+            </svg>
+          </a>
+
+          <a class="footer-social-link" href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M7.8 2.8h8.4a5 5 0 0 1 5 5v8.4a5 5 0 0 1-5 5H7.8a5 5 0 0 1-5-5V7.8a5 5 0 0 1 5-5Zm0 3a2 2 0 0 0-2 2v8.4a2 2 0 0 0 2 2h8.4a2 2 0 0 0 2-2V7.8a2 2 0 0 0-2-2H7.8Zm4.2 2.2a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm0 2.7a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6Zm4.4-2.9a1 1 0 1 1 0 2.1 1 1 0 0 1 0-2.1Z" />
+            </svg>
+          </a>
+
+          <a class="footer-social-link" href="#" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M4 3.5h4.9l4.1 5.8 5-5.8h2.6l-6.4 7.4 6.9 9.6h-4.9l-4.5-6.3-5.4 6.3H3.7l6.8-7.9L4 3.5Zm3.6 2 9.8 13h1.1l-9.8-13H7.6Z" />
+            </svg>
+          </a>
+
+          <a class="footer-social-link" href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M15.6 2.5c.3 2.5 1.7 4.1 4.1 4.3v3.5c-1.4.1-2.7-.3-4-1v5.8c0 3.7-2.3 6.2-5.9 6.2-3.4 0-5.7-2.2-5.7-5.3 0-3.4 2.7-5.8 6.3-5.4v3.6c-1.6-.5-2.8.3-2.8 1.7 0 1.2.9 2 2.2 2 1.4 0 2.2-.8 2.2-2.6V2.5h3.6Z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/site.js?v=20260509-final"></script>
+  <script type="module" src="../assets/js/home-page.js"></script>
+  <script src="../assets/js/feedback.js?v=20260509-final"></script>
+    <script type="module" src="../assets/js/user-menu.js"></script>
+
+</body>
+</html>

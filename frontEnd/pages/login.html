@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تسجيل الدخول - نقشة</title>
+  <link rel="stylesheet" href="../assets/css/base.css?v=20260509-final" />
+  <link rel="stylesheet" href="../assets/css/feedback.css?v=20260509-final" />
+  <link rel="stylesheet" href="../assets/css/login.css?v=20260509-final" />
+  <link rel="stylesheet" href="../assets/css/responsive.css?v=20260511-mobile" />
+</head>
+<body class="login-page">
+  <main class="login-shell">
+    <a class="login-logo" href="index.html">نقشة</a>
+
+    <section class="card login-card" aria-labelledby="login-title">
+      <header class="login-card-header">
+        <h1 id="login-title">مرحبًا بك في نقشة..</h1>
+        <p class="login-subtitle">يرجى إدخال بياناتك للوصول إلى حسابك في نقشة</p>
+      </header>
+
+      <form class="login-form" id="login-form">
+        <div class="form-group">
+          <label for="login-email">البريد الالكتروني</label>
+          <input id="login-email" type="email" placeholder="ادخل بريدك الالكتروني" autocomplete="email" required name="email" />
+        </div>
+
+        <div class="form-group">
+          <div class="login-field-head">
+            <label for="login-password">كلمة السر</label>
+            <a class="login-forgot" href="forgot-password.html">نسيت كلمة السر؟</a>
+          </div>
+
+          <div class="login-password-field">
+            <input
+              id="login-password"
+              type="password"
+              placeholder="••••••••"
+              autocomplete="current-password"
+              data-password-input
+              required
+              name="password"
+            />
+            <button
+              class="login-password-toggle"
+              type="button"
+              aria-label="إظهار كلمة السر"
+              aria-pressed="false"
+              aria-controls="login-password"
+              data-password-toggle
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M2.75 12C4.74 8.88 8.07 7 12 7s7.26 1.88 9.25 5c-1.99 3.12-5.32 5-9.25 5S4.74 15.12 2.75 12Z" />
+                <circle cx="12" cy="12" r="2.8" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <button class="btn login-submit" type="submit">تسجيل الدخول</button>
+      </form>
+
+      <div class="login-divider" aria-hidden="true"></div>
+      <p class="login-signup">ليس لديك حساب؟ <a href="signup.html">إنشاء حساب</a></p>
+    </section>
+  </main>
+
+  <script src="../assets/js/site.js?v=20260509-final"></script>
+    <script src="../assets/js/feedback.js?v=20260509-final"></script>
+  <script type="module" src="../assets/js/login-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>لوحة تحكم نقشة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/admin.css?v=20260509-final" />
+  <link rel="stylesheet" href="../assets/css/feedback.css?v=20260509-final" />
+  <link rel="stylesheet" href="../assets/css/responsive.css?v=20260511-mobile" />
+</head>
+<body>
+  <div class="admin-shell">
+    <aside class="sidebar">
+      <div class="brand-box">
+        <div class="brand-title">نقشة</div>
+        <div class="brand-subtitle">لوحة تحكم الأدمن</div>
+      </div>
+
+      <div class="nav-section-label">الإدارة الرئيسية</div>
+      <nav class="nav flex-column" id="sideNav">
+        <a class="nav-link active" href="#" data-page="dashboard">
+          <i class="bi bi-grid-1x2-fill"></i>
+          <span>الرئيسية</span>
+        </a>
+        <a class="nav-link" href="#" data-page="orders">
+          <i class="bi bi-bag-check-fill"></i>
+          <span>الطلبات</span>
+        </a>
+        <a class="nav-link" href="#" data-page="payments">
+          <i class="bi bi-credit-card-2-front-fill"></i>
+          <span>المدفوعات</span>
+        </a>
+        <a class="nav-link" href="#" data-page="products">
+          <i class="bi bi-box-seam-fill"></i>
+          <span>المنتجات</span>
+        </a>
+        <a class="nav-link" href="#" data-page="categories">
+          <i class="bi bi-tags-fill"></i>
+          <span>التصنيفات</span>
+        </a>
+        <a class="nav-link" href="#" data-page="users">
+          <i class="bi bi-people-fill"></i>
+          <span>المستخدمون</span>
+        </a>
+        <a class="nav-link" href="#" data-page="settings">
+          <i class="bi bi-sliders2-vertical"></i>
+          <span>الإعدادات</span>
+        </a>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <div class="topbar">
+        <div>
+          <div class="page-title" id="topbarTitle">لوحة التحكم الرئيسية</div>
+          <p class="page-desc" id="topbarDesc">متابعة الطلبات والمدفوعات والمنتجات بناءً على الباك إند الحالي.</p>
+        </div>
+      <div class="admin-user-dropdown">
+  <button class="admin-user" id="adminUserMenuBtn" type="button">
+    <div class="admin-avatar" id="adminAvatar">إب</div>
+    <div class="text-start">
+      <div class="fw-bold" id="adminUserName">Ibrahim Awad</div>
+      <small class="text-muted" id="adminUserRole">Admin</small>
+    </div>
+    <span class="admin-user-arrow">⌄</span>
+  </button>
+
+  <div class="admin-user-menu" id="adminUserMenu">
+    <a href="index.html" class="admin-user-menu-item">
+      العودة للصفحة الرئيسية
+    </a>
+
+    <button type="button" class="admin-user-menu-item logout" id="adminLogoutBtn">
+      تسجيل الخروج
+    </button>
+  </div>
+</div>
+      </div>
+
+      <section class="page-panel active" id="page-dashboard">
+        <div class="row g-3 mb-4">
+          <div class="col-12 col-md-6 col-xl-3">
+            <div class="stat-card">
+              <div class="stat-head">
+                <span class="stat-label">إجمالي الطلبات</span>
+                <div class="stat-icon"><i class="bi bi-bag"></i></div>
+              </div>
+              <p class="stat-value" id="stat-total-orders">0</p>
+              <span class="badge-soft badge-info-soft">أحدث تحديث مباشر</span>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-xl-3">
+            <div class="stat-card">
+              <div class="stat-head">
+                <span class="stat-label">المدفوعات المعلقة</span>
+                <div class="stat-icon"><i class="bi bi-hourglass-split"></i></div>
+              </div>
+              <p class="stat-value" id="stat-pending-payments">0</p>
+              <span class="badge-soft badge-warning-soft">تحتاج مراجعة</span>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-xl-3">
+            <div class="stat-card">
+              <div class="stat-head">
+                <span class="stat-label">عدد المنتجات</span>
+                <div class="stat-icon"><i class="bi bi-box"></i></div>
+              </div>
+              <p class="stat-value" id="stat-total-products">0</p>
+              <span class="badge-soft badge-primary-soft">من قاعدة البيانات</span>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-xl-3">
+            <div class="stat-card">
+              <div class="stat-head">
+                <span class="stat-label">إجمالي المبيعات</span>
+                <div class="stat-icon"><i class="bi bi-cash-stack"></i></div>
+              </div>
+              <p class="stat-value" id="stat-total-sales">₪ 0</p>
+              <span class="badge-soft badge-success-soft">حالة ممتازة</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-12 col-xl-8">
+            <div class="section-card">
+              <div class="section-header">
+                <div>
+                  <h3 class="section-title">أحدث الطلبات</h3>
+                  <p class="section-note">مرتبطة بنقاط الـ API الخاصة بالطلبات والمدفوعات.</p>
+                </div>
+                <button type="button" class="btn btn-outline-naqsha btn-sm" data-go="orders">عرض الكل</button>
+              </div>
+              <div class="table-wrap">
+                <table class="table table-naqsha align-middle">
+                  <thead>
+                    <tr>
+                      <th>رقم الطلب</th>
+                      <th>العميل</th>
+                      <th>الدفع</th>
+                      <th>الحالة</th>
+                      <th>المبلغ</th>
+                    </tr>
+                  </thead>
+                  <tbody id="dashboard-latest-orders-body"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-xl-4">
+            <div class="section-card">
+              <div class="section-header">
+                <div>
+                  <h3 class="section-title">تنبيهات المخزون</h3>
+                  <p class="section-note">تعكس endpoint العناصر منخفضة المخزون.</p>
+                </div>
+              </div>
+              <div class="list-box" id="dashboard-low-stock-list"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-panel" id="page-orders">
+  <div class="section-card">
+    <div class="section-header">
+      <div>
+        <h3 class="section-title">إدارة الطلبات</h3>
+        <p class="section-note">عرض، تتبع، وتحديث حالة الطلب.</p>
+      </div>
+      <div class="d-flex gap-2">
+        <button type="button" class="btn btn-outline-naqsha btn-sm" id="orders-reset-filters-btn">إعادة ضبط</button>
+        <button type="button" class="btn btn-naqsha btn-sm" id="orders-export-btn">تصدير</button>
+      </div>
+    </div>
+
+    <div class="filter-bar mb-4">
+      <select class="form-select" id="orders-status-filter">
+        <option value="">كل الحالات</option>
+        <option value="pending">pending</option>
+        <option value="paid">paid</option>
+        <option value="processing">processing</option>
+        <option value="shipped">shipped</option>
+        <option value="completed">completed</option>
+        <option value="cancelled">cancelled</option>
+        <option value="rejected">rejected</option>
+      </select>
+
+      <select class="form-select" id="orders-payment-filter">
+        <option value="">كل طرق الدفع</option>
+        <option value="bank_transfer">bank_transfer</option>
+        <option value="jawwal_pay">jawwal_pay</option>
+        <option value="palpay">palpay</option>
+      </select>
+
+      <input
+        class="form-control"
+        id="orders-search-input"
+        placeholder="بحث برقم الطلب أو اسم العميل أو الهاتف أو المدينة"
+      >
+
+      <button type="button" class="btn btn-naqsha" id="orders-search-btn">بحث</button>
+    </div>
+
+    <div class="table-wrap">
+      <table class="table table-naqsha">
+        <thead>
+          <tr>
+            <th>رقم الطلب</th>
+            <th>العميل</th>
+            <th>الهاتف</th>
+            <th>المدينة</th>
+            <th>الدفع</th>
+            <th>الحالة</th>
+            <th>الإجمالي</th>
+            <th>إجراء</th>
+          </tr>
+        </thead>
+        <tbody id="admin-orders-table-body"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+      <section class="page-panel" id="page-order-details">
+        <div class="section-card">
+          <div class="section-header">
+            <div>
+              <h3 class="section-title" id="details-order-title">تفاصيل الطلب</h3>
+              <p class="section-note">هذه الصفحة مبنية على endpoint تفاصيل الطلب للأدمن.</p>
+            </div>
+            <div class="d-flex gap-2 flex-wrap">
+              <select class="form-select" id="details-status-select">
+                <option value="">تحديث الحالة</option>
+                <option value="pending">pending</option>
+                <option value="paid">paid</option>
+                <option value="processing">processing</option>
+                <option value="shipped">shipped</option>
+                <option value="completed">completed</option>
+                <option value="cancelled">cancelled</option>
+                  <option value="rejected">rejected</option>
+              </select>
+              <button type="button" class="btn btn-naqsha" id="details-save-status-btn">حفظ</button>
+            </div>
+          </div>
+
+          <div class="order-summary-grid">
+            <div class="summary-tile"><small>اسم العميل</small><h6 id="details-customer-name">—</h6></div>
+            <div class="summary-tile"><small>طريقة الدفع</small><h6 id="details-payment-method">—</h6></div>
+            <div class="summary-tile"><small>حالة الطلب</small><h6 id="details-order-status">—</h6></div>
+            <div class="summary-tile"><small>الإجمالي</small><h6 id="details-total-amount">—</h6></div>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-12 col-xl-7">
+              <div class="section-card mb-0">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">المنتجات المطلوبة</h3>
+                    <p class="section-note">تعكس order_items.</p>
+                  </div>
+                </div>
+                <div class="table-wrap">
+                  <table class="table table-naqsha">
+                    <thead>
+                      <tr>
+                        <th>المنتج</th>
+                        <th>المقاس</th>
+                        <th>اللون</th>
+                        <th>الكمية</th>
+                        <th>السعر</th>
+                      </tr>
+                    </thead>
+                    <tbody id="details-order-items-body">
+                      <tr>
+                        <td colspan="5" class="text-center text-muted py-4">اختر طلبًا لعرض تفاصيله</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-xl-5">
+              <div class="section-card mb-4">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">بيانات الشحن</h3>
+                    <p class="section-note">مأخوذة من order checkout.</p>
+                  </div>
+                </div>
+                <div class="list-box">
+                  <div class="list-item">
+                    <div>
+                      <div class="mini-title">البريد الإلكتروني</div>
+                      <p class="mini-sub" id="details-customer-email">—</p>
+                    </div>
+                  </div>
+                  <div class="list-item">
+                    <div>
+                      <div class="mini-title">الهاتف</div>
+                      <p class="mini-sub" id="details-customer-phone">—</p>
+                    </div>
+                  </div>
+                  <div class="list-item">
+                    <div>
+                      <div class="mini-title">العنوان</div>
+                      <p class="mini-sub" id="details-customer-address">—</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="section-card mb-0">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">مراجعة الدفع</h3>
+                    <p class="section-note">تعكس payment proof و review status.</p>
+                  </div>
+                </div>
+                <div class="list-box">
+                  <div class="list-item">
+                    <div>
+                      <div class="mini-title">رقم العملية</div>
+                      <p class="mini-sub" id="details-payment-reference">—</p>
+                    </div>
+                    <span class="status-chip status-pending" id="details-payment-status">pending</span>
+                  </div>
+                  <div class="list-item">
+                    <div>
+                      <div class="mini-title">اسم الدافع</div>
+                      <p class="mini-sub" id="details-payer-name">—</p>
+                    </div>
+                  </div>
+                  <div class="list-item">
+                    <div>
+                      <div class="mini-title">صورة الإيصال</div>
+                      <p class="mini-sub" id="details-payment-receipt-text">—</p>
+                    </div>
+                    <a class="btn btn-outline-naqsha btn-sm" id="details-payment-receipt-link" href="#" target="_blank" style="display:none;">
+                      عرض
+                    </a>
+                  </div>
+                </div>
+                <div class="d-flex gap-2 mt-3">
+                  <button type="button" class="btn btn-success rounded-4 px-4" id="details-approve-payment-btn">قبول الدفع</button>
+                  <button type="button" class="btn btn-danger rounded-4 px-4" id="details-reject-payment-btn">رفض الدفع</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-panel" id="page-payments">
+        <div class="section-card">
+          <div class="section-header">
+            <div>
+              <h3 class="section-title">المدفوعات</h3>
+              <p class="section-note">عرض المدفوعات المحلية المرفوعة من المستخدمين ومراجعتها.</p>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="table table-naqsha">
+              <thead>
+                <tr>
+                  <th>رقم الطلب</th>
+                  <th>الطريقة</th>
+                  <th>رقم العملية</th>
+                  <th>الدافع</th>
+                  <th>المبلغ</th>
+                  <th>الحالة</th>
+                  <th>إجراء</th>
+                </tr>
+              </thead>
+              <tbody id="admin-payments-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-panel" id="page-products">
+        <div class="section-card">
+          <div class="section-header">
+            <div>
+              <h3 class="section-title">المنتجات</h3>
+              <p class="section-note">إضافة، تعديل، تعطيل، وتتبع المخزون والصور والمتغيرات.</p>
+            </div>
+            <div class="d-flex gap-2">
+              <button type="button" class="btn btn-outline-naqsha" id="products-reset-filters-btn">إعادة ضبط</button>
+              <button type="button" class="btn btn-naqsha" id="products-export-btn">تصدير</button>
+              <button type="button" class="btn btn-naqsha" id="open-product-modal-btn">إضافة منتج</button>
+            </div>
+          </div>
+
+<div class="filter-bar mb-4">
+  <input class="form-control" id="products-search-input" placeholder="ابحث باسم المنتج">
+  
+  <select class="form-select" id="products-category-filter">
+    <option value="">كل التصنيفات</option>
+  </select>
+
+  <select class="form-select" id="products-status-filter">
+    <option value="">كل الحالات</option>
+    <option value="active">فعال</option>
+    <option value="inactive">معطل</option>
+  </select>
+
+  <button type="button" class="btn btn-outline-naqsha" id="products-search-btn">تطبيق</button>
+</div>
+
+          <div class="table-wrap">
+            <table class="table table-naqsha">
+              <thead>
+                <tr>
+                  <th>المنتج</th>
+                  <th>التصنيف</th>
+                  <th>السعر الأساسي</th>
+                  <th>المخزون</th>
+                  <th>عدد المتغيرات</th>
+                  <th>الحالة</th>
+                  <th>الإجراءات</th>
+                </tr>
+              </thead>
+              <tbody id="admin-products-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-panel" id="page-categories">
+        <div class="row g-4">
+          <div class="col-12 col-xl-5">
+            <div class="section-card">
+              <div class="section-header">
+                <div>
+                  <h3 class="section-title">إضافة تصنيف</h3>
+                  <p class="section-note">مرتبطة بـ Admin Categories API.</p>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="field-label">اسم التصنيف</label>
+                <input class="form-control" id="category-name-input" placeholder="مثال: فساتين">
+              </div>
+              <button type="button" class="btn btn-naqsha" id="save-category-btn">حفظ التصنيف</button>
+            </div>
+          </div>
+          <div class="col-12 col-xl-7">
+            <div class="section-card">
+              <div class="section-header">
+                <div>
+                  <h3 class="section-title">التصنيفات الحالية</h3>
+                  <p class="section-note">عرض وإدارة تصنيفات المنتجات.</p>
+                </div>
+              </div>
+              <div class="list-box" id="admin-categories-list"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-panel" id="page-users">
+        <div class="section-card">
+          <div class="section-header">
+            <div>
+              <h3 class="section-title">المستخدمون</h3>
+              <p class="section-note">تغيير الدور وتفعيل أو تعطيل الحسابات.</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="table table-naqsha">
+              <thead>
+                <tr>
+                  <th>المستخدم</th>
+                  <th>البريد</th>
+                  <th>الدور</th>
+                  <th>الحالة</th>
+                  <th>تاريخ التسجيل</th>
+                  <th>إجراء</th>
+                </tr>
+              </thead>
+              <tbody id="admin-users-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-panel" id="page-settings">
+        <div class="section-card">
+          <div class="section-header">
+            <div>
+              <h3 class="section-title">إعدادات المتجر</h3>
+              <p class="section-note">بيانات المتجر وطرق الدفع المحلية ورسوم الشحن.</p>
+            </div>
+            <button type="button" class="btn btn-naqsha" id="save-settings-btn">حفظ التعديلات</button>
+          </div>
+          <div class="settings-grid">
+            <div>
+              <label class="field-label">اسم المتجر</label>
+              <input class="form-control" id="setting-store-name" value="">
+            </div>
+            <div>
+              <label class="field-label">البريد الإلكتروني</label>
+              <input class="form-control" id="setting-store-email" value="">
+            </div>
+            <div>
+              <label class="field-label">رقم الهاتف</label>
+              <input class="form-control" id="setting-store-phone" value="">
+            </div>
+            <div>
+              <label class="field-label">العملة</label>
+              <select class="form-select" id="setting-currency">
+                <option value="ILS">ILS</option>
+                <option value="USD">USD</option>
+              </select>
+            </div>
+            <div>
+              <label class="field-label">رسوم الشحن</label>
+              <input class="form-control" id="setting-shipping-fee" value="">
+            </div>
+            <div>
+              <label class="field-label">عنوان المتجر</label>
+              <input class="form-control" id="setting-store-address" value="">
+            </div>
+            <div>
+              <label class="field-label">اسم المستفيد - بنك فلسطين</label>
+              <input class="form-control" id="setting-bank-beneficiary-name" value="">
+            </div>
+            <div>
+              <label class="field-label">اسم البنك</label>
+              <input class="form-control" id="setting-bank-name" value="">
+            </div>
+            <div>
+              <label class="field-label">IBAN</label>
+              <input class="form-control" id="setting-bank-iban" value="">
+            </div>
+            <div>
+              <label class="field-label">رقم Jawwal Pay</label>
+              <input class="form-control" id="setting-jawwal-pay-number" value="">
+            </div>
+            <div>
+              <label class="field-label">رقم PalPay</label>
+              <input class="form-control" id="setting-palpay-number" value="">
+            </div>
+            <div>
+              <label class="field-label">رابط الشعار</label>
+              <input class="form-control" id="setting-logo-url" value="">
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+<script>
+  const sideLinks = document.querySelectorAll("#sideNav .nav-link");
+  const pages = document.querySelectorAll(".page-panel");
+  const topbarTitle = document.getElementById("topbarTitle");
+  const topbarDesc = document.getElementById("topbarDesc");
+
+  const pageMeta = {
+    dashboard: {
+      title: "لوحة التحكم الرئيسية",
+      desc: "ملخص شامل للطلبات والمدفوعات والمنتجات منخفضة المخزون.",
+    },
+    orders: {
+      title: "إدارة الطلبات",
+      desc: "عرض الطلبات والبحث والتصفية وتحديث الحالات.",
+    },
+    "order-details": {
+      title: "تفاصيل الطلب",
+      desc: "عرض منتجات الطلب وبيانات الشحن ومراجعة الدفع.",
+    },
+    payments: {
+      title: "المدفوعات",
+      desc: "مراجعة إثباتات الدفع المحلية وقبولها أو رفضها.",
+    },
+    products: {
+      title: "المنتجات",
+      desc: "إدارة المنتجات والمتغيرات والصور والحالة العامة.",
+    },
+    categories: {
+      title: "التصنيفات",
+      desc: "إضافة وتعديل وحذف تصنيفات المنتجات.",
+    },
+    users: {
+      title: "المستخدمون",
+      desc: "إدارة المستخدمين وتغيير الأدوار وتفعيل الحسابات.",
+    },
+    settings: {
+      title: "إعدادات المتجر",
+      desc: "بيانات المتجر ووسائل الدفع ورسوم الشحن.",
+    },
+  };
+
+  window.showPage = function showPage(pageName, save = true) {
+    if (!pageMeta[pageName]) {
+      pageName = "dashboard";
+    }
+
+    if (save) {
+      localStorage.setItem("naqsha_admin_active_page", pageName);
+      window.history.replaceState(null, "", `#${pageName}`);
+    }
+
+    pages.forEach((page) => page.classList.remove("active"));
+
+    const target = document.getElementById(`page-${pageName}`);
+    if (target) target.classList.add("active");
+
+    sideLinks.forEach((link) => link.classList.remove("active"));
+
+    const currentLink = document.querySelector(`[data-page="${pageName}"]`);
+    if (currentLink) currentLink.classList.add("active");
+
+    const meta = pageMeta[pageName] || pageMeta.dashboard;
+    topbarTitle.textContent = meta.title;
+    topbarDesc.textContent = meta.desc;
+  };
+
+  sideLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      const page = link.dataset.page;
+      window.showPage(page);
+    });
+  });
+
+  document.querySelectorAll("[data-go]").forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      window.showPage(btn.dataset.go);
+    });
+  });
+
+  const pageFromHash = window.location.hash.replace("#", "");
+  const savedAdminPage = localStorage.getItem("naqsha_admin_active_page");
+  const initialPage = pageMeta[pageFromHash]
+    ? pageFromHash
+    : pageMeta[savedAdminPage]
+      ? savedAdminPage
+      : "dashboard";
+
+  window.showPage(initialPage, false);
+</script>
+
+  <script type="module" src="../assets/js/admin.js?v=20260509-final"></script>
+  <div class="modal-naqsha-backdrop" id="product-modal-backdrop">
+    <div class="modal-naqsha">
+      <div class="section-header">
+        <div>
+          <h3 class="section-title" id="product-modal-title">إضافة منتج جديد</h3>
+          <p class="section-note">أدخل البيانات الأساسية وصورة وروابط المتغيرات.</p>
+        </div>
+        <button type="button" class="btn btn-outline-naqsha" id="close-product-modal-btn">إغلاق</button>
+      </div>
+
+      <div class="modal-naqsha-grid">
+        <div>
+          <label class="field-label">اسم المنتج</label>
+          <input class="form-control" id="product-name-input" placeholder="مثال: فستان سهرة أسود">
+        </div>
+
+        <div>
+          <label class="field-label">التصنيف</label>
+          <select class="form-select" id="product-category-select">
+            <option value="">اختر التصنيف</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="field-label">السعر الأساسي</label>
+          <input class="form-control" id="product-base-price-input" type="number" min="0" step="0.01" placeholder="مثال: 180">
+        </div>
+
+        <div>
+          <label class="field-label">رابط الصورة الرئيسية</label>
+      <input
+        class="form-control"
+        id="product-main-image-input"
+        type="file"
+        accept="image/*"
+      />
+
+      <input
+        id="product-main-image-url"
+        type="hidden"
+      />       
+      </div>
+
+        <div class="full-span">
+          <label class="field-label">الوصف</label>
+          <textarea class="form-control" id="product-description-input" rows="3" placeholder="وصف مختصر للمنتج"></textarea>
+        </div>
+
+<div class="product-form-sections full-span">
+  <div class="product-form-section product-builder-section">
+    <div class="product-form-section-title">بيانات المتغيرات</div>
+    <p class="product-builder-note">
+      اختر المقاسات والألوان فقط، ثم اضغط توليد المتغيرات. لا تحتاج لكتابة كل متغير يدويًا.
+    </p>
+
+    <div class="product-builder-block">
+      <div class="product-builder-label">المقاسات</div>
+      <div id="product-size-options" class="product-option-chips"></div>
+    </div>
+
+    <div class="product-builder-block">
+      <div class="product-builder-label">الألوان</div>
+      <div id="product-color-options" class="product-option-chips color-options"></div>
+    </div>
+
+    <div class="product-builder-block">
+      <div class="product-builder-label">صور الألوان</div>
+      <p class="product-builder-note small-note">
+        ارفع صورة واحدة لكل لون، وسيتم استخدامها تلقائيًا مع كل المقاسات الخاصة بهذا اللون.
+      </p>
+      <div id="selected-color-images" class="color-image-grid"></div>
+    </div>
+
+    <div class="product-bulk-tools">
+      <div class="product-form-field">
+        <label for="bulk-variant-price-input">السعر للكل</label>
+        <input id="bulk-variant-price-input" type="number" min="0" step="0.01" placeholder="مثال: 80" />
+      </div>
+
+      <div class="product-form-field">
+        <label for="bulk-variant-stock-input">الكمية للكل</label>
+        <input id="bulk-variant-stock-input" type="number" min="0" placeholder="مثال: 10" />
+      </div>
+    </div>
+
+    <div class="product-form-actions builder-actions">
+      <button id="generate-variants-btn" class="product-form-add-btn" type="button">
+        توليد المتغيرات
+      </button>
+      <button id="apply-bulk-variants-btn" class="btn btn-outline-naqsha" type="button">
+        تطبيق السعر والكمية على الكل
+      </button>
+    </div>
+
+    <div id="variants-list" class="admin-mini-list variants-table-list"></div>
+  </div>
+</div>      </div>
+
+      <div class="d-flex gap-2 mt-4">
+        <button type="button" class="btn btn-naqsha" id="save-product-btn">حفظ المنتج</button>
+        <button type="button" class="btn btn-outline-naqsha" id="clear-product-form-btn">تفريغ الحقول</button>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/js/feedback.js?v=20260509-final"></script>
+</body>
+</html>

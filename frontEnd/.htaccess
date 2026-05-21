@@ -1,0 +1,12 @@
+AddDefaultCharset UTF-8
+
+<IfModule mod_mime.c>
+  AddCharset UTF-8 .html .css .js
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteRule ^$ pages/index.html [L]
+  RewriteRule ^(index|login|signup|search|cart|shipping|payment-transfer|order-success|admin)\.html$ pages/$1.html [L,NC]
+</IfModule>

@@ -1,0 +1,586 @@
+.checkout-page{
+  background:#f8f7f4;
+  color:#162425;
+}
+
+.checkout-section{
+  padding:46px 0 86px;
+}
+
+.checkout-page-shell{
+  width:min(1220px, calc(100% - 34px));
+  margin:0 auto;
+}
+
+.checkout-progress{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  margin-bottom:34px;
+  color:#253433;
+}
+
+.checkout-step{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-weight:700;
+}
+
+.checkout-step-num{
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:.88rem;
+  font-weight:800;
+}
+
+.checkout-step-num.is-done,
+.checkout-step-num.is-active{
+  background:#004b44;
+  color:#fff;
+}
+
+.checkout-step-line{
+  width:46px;
+  height:1px;
+  background:#cbd8d5;
+}
+
+.checkout-frame{
+  display:grid;
+  grid-template-columns:minmax(260px, 320px) minmax(0, 1fr);
+  gap:24px;
+  align-items:start;
+  direction:ltr;
+}
+
+.checkout-summary,
+.checkout-panel{
+  direction:rtl;
+  border:1px solid #edf0ec;
+  border-radius:18px;
+  box-shadow:0 20px 48px rgba(23, 35, 32, .08);
+}
+
+.checkout-summary{
+  position:sticky;
+  top:96px;
+  padding:24px 24px 26px;
+  background:#fff;
+}
+
+.checkout-summary h2{
+  margin:0 0 20px;
+  color:#132423;
+  font-size:1.35rem;
+  font-weight:800;
+}
+
+.checkout-summary-items{
+  display:grid;
+  gap:16px;
+  margin-bottom:20px;
+}
+
+.checkout-summary-item{
+  display:grid;
+  grid-template-columns:60px 1fr auto;
+  align-items:center;
+  gap:12px;
+}
+
+.checkout-thumb{
+  width:60px;
+  height:76px;
+  border-radius:14px;
+  border:1px solid #e4e7e2;
+  background:center top/cover no-repeat;
+}
+
+.checkout-thumb.is-tee{
+  background-image:url("../images/products/cotton-tshirt.svg");
+}
+
+.checkout-thumb.is-sweater{
+  background-image:url("../images/products/knit-sweater.svg");
+}
+
+.checkout-thumb.is-suit{
+  background-image:url("../images/products/classic-suit.svg");
+  background-position:35% center;
+}
+
+.checkout-thumb.is-man{
+  background-image:url("../images/products/men-daily-jacket.png");
+}
+
+.checkout-thumb.is-women{
+  background-image:url("../images/products/women-collection.svg");
+}
+
+.checkout-thumb.is-kids{
+  background-image:url("../images/products/kids-collection.svg");
+}
+
+.checkout-summary-copy h3{
+  margin:0 0 4px;
+  font-size:.98rem;
+  color:#162425;
+}
+
+.checkout-summary-copy p{
+  margin:0;
+  color:#73807d;
+  font-size:.82rem;
+  line-height:1.5;
+}
+
+.checkout-summary-item strong{
+  color:#004b44;
+  font-size:.95rem;
+  white-space:nowrap;
+}
+
+.checkout-totals{
+  padding:12px 0 6px;
+  border-top:1px solid #edf0ec;
+}
+
+.checkout-total-line{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:8px 0;
+  color:#53605e;
+}
+
+.checkout-total-line strong{
+  color:#052e2a;
+}
+
+.checkout-total-line.is-grand{
+  margin-top:6px;
+  padding-top:14px;
+  border-top:1px solid #edf0ec;
+  color:#111f20;
+  font-size:1.18rem;
+  font-weight:800;
+}
+
+.checkout-summary-action{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  min-height:44px;
+  margin-top:16px;
+  border-radius:999px;
+  background:#0b6758;
+}
+
+.checkout-summary-notes{
+  display:grid;
+  gap:12px;
+  margin-top:18px;
+}
+
+.checkout-note{
+  padding:12px 14px;
+  border:1px dashed rgba(11, 103, 88, .25);
+  border-radius:14px;
+  background:#fbfdfb;
+  color:#45615c;
+  font-size:.9rem;
+  text-align:center;
+}
+
+.checkout-panel{
+  padding:30px;
+  background:#fff;
+}
+
+.checkout-panel-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:22px;
+  margin-bottom:28px;
+}
+
+.checkout-panel h1{
+  margin:0 0 8px;
+  color:#0d403b;
+  font-size:2.25rem;
+  line-height:1.15;
+}
+
+.checkout-panel p{
+  margin:0;
+  color:#687370;
+  line-height:1.7;
+}
+
+.checkout-method-switch{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(198px, 1fr));
+  gap:18px;
+  flex-shrink:0;
+  min-width:min(100%, 450px);
+}
+
+.checkout-method-pill{
+  position:relative;
+  min-height:96px;
+  padding:18px 22px 18px 18px;
+  border:1.5px solid #d4ddda;
+  border-radius:18px;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  align-items:center;
+  gap:14px;
+  background:#fff;
+  color:#102a28;
+  box-shadow:0 8px 24px rgba(22, 36, 37, .06);
+  transition:border-color .2s ease, box-shadow .2s ease, transform .2s ease, background-color .2s ease;
+}
+
+.checkout-method-pill:hover{
+  transform:translateY(-1px);
+  border-color:#a8bab6;
+  box-shadow:0 14px 30px rgba(22, 36, 37, .08);
+}
+
+.checkout-method-pill.is-active{
+  border-color:#00322d;
+  box-shadow:0 0 0 2px rgba(0, 50, 45, .08), 0 18px 36px rgba(0, 50, 45, .12);
+}
+
+.checkout-method-radio{
+  position:absolute;
+  top:14px;
+  inset-inline-start:14px;
+  width:18px;
+  height:18px;
+  border:1.8px solid #0b6758;
+  border-radius:50%;
+  background:#fff;
+}
+
+.checkout-method-radio::after{
+  content:"";
+  position:absolute;
+  inset:50% auto auto 50%;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#0b6758;
+  transform:translate(-50%, -50%) scale(0);
+  transition:transform .2s ease;
+}
+
+.checkout-method-pill.is-active .checkout-method-radio::after{
+  transform:translate(-50%, -50%) scale(1);
+}
+
+.checkout-method-icon{
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  color:#00322d;
+}
+
+.checkout-method-icon svg{
+  width:100%;
+  height:100%;
+}
+
+.checkout-method-copy{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  min-width:0;
+  padding-inline-start:12px;
+}
+
+.checkout-method-copy strong{
+  color:#1a1c1c;
+  font-size:1rem;
+  font-weight:800;
+  line-height:1.4;
+}
+
+.checkout-form-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:20px 18px;
+}
+
+.checkout-field{
+  min-width:0;
+}
+
+.checkout-field-wide{
+  grid-column:1 / -1;
+}
+
+.checkout-field label{
+  margin:0 0 8px;
+  color:#273635;
+  font-weight:800;
+  font-size:.95rem;
+}
+
+.checkout-field input,
+.checkout-field select,
+.checkout-field textarea{
+  width:100%;
+  min-height:46px;
+  padding:13px 16px;
+  border:1px solid #d8e1dd;
+  border-radius:12px;
+  background:#fff;
+  color:#142222;
+  font-size:.96rem;
+  box-shadow:none;
+}
+
+.checkout-field input:focus,
+.checkout-field select:focus,
+.checkout-field textarea:focus{
+  outline:none;
+  border-color:#0b6758;
+  box-shadow:0 0 0 3px rgba(11, 103, 88, .1);
+}
+
+.checkout-field input:disabled,
+.checkout-field select:disabled,
+.checkout-field textarea:disabled{
+  background:#f5f7f6;
+  color:#93a09d;
+  cursor:not-allowed;
+}
+
+.checkout-field textarea{
+  min-height:110px;
+  resize:vertical;
+}
+
+.checkout-checkbox{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:20px 0 18px;
+  color:#2f3d3b;
+  font-weight:600;
+  line-height:1.7;
+}
+
+.checkout-checkbox input{
+  width:16px;
+  height:16px;
+  margin:0;
+  accent-color:#0b6758;
+}
+
+.checkout-submit{
+  width:100%;
+  min-height:48px;
+  border:none;
+  border-radius:999px;
+  background:#0b6758;
+  color:#fff;
+  font:inherit;
+  font-weight:800;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.checkout-submit:hover{
+  background:#084c42;
+}
+
+.checkout-submit:disabled{
+  cursor:default;
+  opacity:.72;
+  background:#9eb8b3;
+}
+
+.checkout-summary-action:disabled{
+  cursor:default;
+  opacity:.62;
+  background:#9eb8b3;
+  box-shadow:none;
+}
+
+@media (max-width: 992px){
+  .checkout-section{
+    padding:30px 0 58px;
+  }
+
+  .checkout-frame{
+    grid-template-columns:1fr;
+  }
+
+  .checkout-summary{
+    position:static;
+    order:2;
+  }
+
+  .checkout-panel{
+    order:1;
+  }
+
+  .checkout-panel-head{
+    flex-direction:column;
+  }
+
+  .checkout-method-switch{
+    width:100%;
+    min-width:0;
+  }
+
+  .checkout-method-pill{
+    min-height:90px;
+  }
+}
+
+@media (max-width: 640px){
+  .checkout-page-shell{
+    width:min(100%, calc(100% - 24px));
+  }
+
+  .checkout-progress{
+    gap:10px;
+    margin-bottom:24px;
+  }
+
+  .checkout-step-line{
+    width:28px;
+  }
+
+  .checkout-panel,
+  .checkout-summary{
+    padding:20px;
+    border-radius:16px;
+  }
+
+  .checkout-panel h1{
+    font-size:1.85rem;
+  }
+
+  .checkout-form-grid,
+  .checkout-summary-item{
+    grid-template-columns:1fr;
+  }
+
+  .checkout-summary-item{
+    text-align:center;
+  }
+
+  .checkout-thumb{
+    margin:auto;
+  }
+}
+
+@media (max-width: 768px){
+  .checkout-method-switch{
+    grid-template-columns:1fr;
+  }
+
+  .checkout-method-pill{
+    width:100%;
+  }
+
+  .checkout-checkbox{
+    align-items:flex-start;
+  }
+}
+
+@media (max-width: 480px){
+  .checkout-progress{
+    flex-wrap:wrap;
+    row-gap:8px;
+  }
+
+  .checkout-step{
+    font-size:.9rem;
+  }
+
+  .checkout-panel h1{
+    font-size:1.65rem;
+  }
+
+  .checkout-method-pill{
+    padding:16px 18px 16px 16px;
+  }
+
+  .checkout-method-copy{
+    padding-inline-start:8px;
+  }
+}
+
+/* Final responsive checkout polish */
+.checkout-summary-product{
+  display:grid;
+  grid-template-columns:64px minmax(0, 1fr) auto;
+  align-items:center;
+  gap:12px;
+}
+
+.checkout-summary-image{
+  width:64px;
+  height:78px;
+  border-radius:14px;
+  object-fit:cover;
+  object-position:center top;
+  border:1px solid #e4e7e2;
+  background:#f4f6f5;
+}
+
+.checkout-summary-product-info{
+  min-width:0;
+}
+
+.checkout-summary-product-info strong{
+  display:block;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.checkout-summary-product-info p{
+  margin:3px 0 0;
+  color:#73807d;
+  font-size:.88rem;
+  line-height:1.45;
+}
+
+@media (max-width: 640px){
+  .checkout-summary-product{
+    grid-template-columns:56px minmax(0, 1fr) auto;
+    text-align:start;
+  }
+
+  .checkout-summary-image{
+    width:56px;
+    height:70px;
+  }
+}
+
+@media (max-width: 420px){
+  .checkout-summary-product{
+    grid-template-columns:52px minmax(0, 1fr);
+  }
+
+  .checkout-summary-product > span{
+    grid-column:2;
+    justify-self:start;
+    margin-top:4px;
+  }
+}

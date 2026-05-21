@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>إثبات الدفع - نقشة</title>
+    <link rel="stylesheet" href="../assets/css/base.css?v=20260511-final" />
+    <link rel="stylesheet" href="../assets/css/feedback.css?v=20260511-final" />
+    <link
+      rel="stylesheet"
+      href="../assets/css/payment-transfer.css?v=20260511-final"
+    />
+  </head>
+  <body class="checkout-page payment-transfer-page">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html">نقشة</a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="فتح القائمة"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          data-nav-toggle
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span class="sr-only">فتح القائمة</span>
+        </button>
+
+        <nav class="nav" id="site-nav" data-nav>
+          <a class="active" href="index.html">الرئيسية</a>
+          <a href="index.html#men">رجال</a>
+          <a href="index.html#women">نساء</a>
+          <a href="index.html#kids">أطفال</a>
+        </nav>
+
+        <div class="icon-links">
+          <a class="icon-btn" href="search.html" aria-label="بحث">⌕</a>
+          <a class="icon-btn" href="cart.html" aria-label="السلة">🛒</a>
+          <div class="user-menu-wrapper">
+            <button id="userMenuButton" class="user-menu-trigger" type="button">
+              <span id="userMenuLabel" class="user-menu-name"
+                >Ibrahim Awad</span
+              >
+              <span class="user-menu-icon">👤</span>
+            </button>
+
+            <div id="userDropdownMenu" class="user-dropdown-menu d-none">
+              <div class="user-dropdown-header">
+                <div id="dropdownUserName" class="dropdown-user-name">
+                  Ibrahim Awad
+                </div>
+                <div id="dropdownUserRole" class="dropdown-user-role">
+                  مستخدم
+                </div>
+              </div>
+
+              <a
+                href="profile.html"
+                id="profileLink"
+                class="user-dropdown-item d-none"
+              >
+                تغيير كلمة السر
+              </a>
+
+              <a
+                href="admin-dash.html"
+                id="adminDashboardLink"
+                class="user-dropdown-item d-none"
+              >
+                لوحة التحكم
+              </a>
+
+              <button
+                id="logoutButton"
+                class="user-dropdown-item logout-item d-none"
+                type="button"
+              >
+                تسجيل الخروج
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="checkout-section">
+      <div class="checkout-page-shell">
+        <div class="checkout-progress" aria-label="مراحل الطلب">
+          <div class="checkout-step">
+            <span class="checkout-step-num is-done">1</span>
+            <span class="checkout-step-label">الشحن</span>
+          </div>
+          <span class="checkout-step-line"></span>
+          <div class="checkout-step">
+            <span class="checkout-step-num is-active">2</span>
+            <span class="checkout-step-label">الدفع</span>
+          </div>
+        </div>
+
+        <div class="checkout-frame">
+          <aside class="checkout-summary card">
+            <h2>تفاصيل الطلب</h2>
+
+            <div class="checkout-summary-items" data-checkout-items></div>
+
+            <div class="checkout-totals">
+              <div class="checkout-total-line">
+                <span>المجموع الفرعي</span>
+                <strong data-checkout-subtotal>0₪</strong>
+              </div>
+              <div class="checkout-total-line">
+                <span>الشحن</span>
+                <strong data-checkout-shipping>0₪</strong>
+              </div>
+              <div class="checkout-total-line">
+                <span>الضريبة المقدرة</span>
+                <strong data-checkout-tax>0₪</strong>
+              </div>
+              <div class="checkout-total-line is-grand">
+                <span>الإجمالي</span>
+                <strong data-checkout-total>0₪</strong>
+              </div>
+            </div>
+
+            <button
+              class="btn checkout-summary-action"
+              type="submit"
+              form="payment-transfer-form"
+            >
+              حفظ وتأكيد البيانات
+            </button>
+          </aside>
+
+          <section class="checkout-panel card" aria-labelledby="transfer-title">
+            <div class="checkout-panel-head payment-panel-head">
+              <div>
+                <h1 id="transfer-title">إثبات الدفع للطلب</h1>
+                <p>
+                  اختر طريقة الدفع المناسبة، ثم أدخل بيانات العملية وارفع إيصال
+                  الدفع.
+                </p>
+              </div>
+            </div>
+
+            <div class="payment-methods-grid" aria-label="اختيار طريقة الدفع">
+              <button
+                class="payment-method-card is-active"
+                type="button"
+                data-payment-method="bank_transfer"
+              >
+                <span class="payment-method-check"></span>
+                <span class="payment-method-icon">🏦</span>
+                <span class="payment-method-content"
+                  ><strong>حوالة بنكية</strong
+                  ><small>تحويل إلى بنك فلسطين</small></span
+                >
+              </button>
+              <button
+                class="payment-method-card"
+                type="button"
+                data-payment-method="jawwal_pay"
+              >
+                <span class="payment-method-check"></span>
+                <span class="payment-method-icon">📱</span>
+                <span class="payment-method-content"
+                  ><strong>محفظة Jawwal Pay</strong
+                  ><small>تحويل عبر جوال بي</small></span
+                >
+              </button>
+              <button
+                class="payment-method-card"
+                type="button"
+                data-payment-method="palpay"
+              >
+                <span class="payment-method-check"></span>
+                <span class="payment-method-icon">💳</span>
+                <span class="payment-method-content"
+                  ><strong>محفظة PalPay</strong
+                  ><small>تحويل عبر بال بي</small></span
+                >
+              </button>
+            </div>
+
+            <section
+              class="payment-info-card"
+              aria-labelledby="transfer-bank-title"
+            >
+              <div class="payment-info-head">
+                <div>
+                  <span class="payment-info-badge" data-payment-info-badge
+                    >بنك فلسطين</span
+                  >
+                  <h2 id="transfer-bank-title" data-payment-info-title>
+                    بيانات التحويل البنكي
+                  </h2>
+                  <p data-payment-info-desc>
+                    يرجى استخدام البيانات التالية عند تنفيذ الحوالة البنكية.
+                  </p>
+                </div>
+              </div>
+              <div class="payment-info-grid" data-payment-info-grid>
+                <div class="payment-info-item">
+                  <span>رقم الحساب</span
+                  ><strong dir="ltr">0446 0286 6950 9931</strong>
+                </div>
+                <div class="payment-info-item">
+                  <span>رقم الآيبان</span
+                  ><strong dir="ltr">PS40 PALS 0446 0286 6950 9931 00000</strong>
+                </div>
+                <div class="payment-info-item">
+                  <span>اسم المستفيد</span><strong>ابراهيم عوض</strong>
+                </div>
+                <div class="payment-info-item">
+                  <span>البنك</span><strong>بنك فلسطين</strong>
+                </div>
+              </div>
+            </section>
+            <form
+              id="payment-transfer-form"
+              class="checkout-form"
+              data-payment-fo="transfer"
+            >
+              <input
+                type="hidden"
+                id="payment-method"
+                name="paymentMethod"
+                value="bank_transfer"
+              />
+              <div class="checkout-form-grid">
+                <div class="checkout-field">
+                  <label for="paid-amount">المبلغ المدفوع</label>
+                  <input
+                    id="paid-amount"
+                    name="paidAmount"
+                    type="number"
+                    step="0.01"
+                    min="0.01"
+                    required
+                    lang="en"
+                    dir="ltr"
+                    data-paid-amount
+                  />
+                  <p class="checkout-help">يمكنك تعديل المبلغ إذا دفعت دفعة جزئية أو مبلغًا مختلفًا.</p>
+                </div>
+
+                <div class="checkout-field">
+                  <label for="paid-date">تاريخ الدفع</label>
+                  <input id="paid-date" name="paidDate" type="date" required />
+                </div>
+
+                <div class="checkout-field">
+                  <label for="payment-provider" data-provider-label
+                    >اسم البنك</label
+                  >
+                  <input
+                    id="payment-provider"
+                    name="paymentProvider"
+                    type="text"
+                    value="بنك فلسطين"
+                    readonly
+                    aria-readonly="true"
+                    class="readonly-field"
+                    required
+                  />
+                  <p class="checkout-help">يتم تحديد اسم البنك أو المحفظة تلقائيًا حسب طريقة الدفع.</p>
+                </div>
+
+                <div class="checkout-field">
+                  <label for="currency">العملة</label>
+                  <select id="currency" name="currency" required>
+                    <option>شيكل (ILS)</option>
+                    <option>دولار (USD)</option>
+                    <option>دينار (JOD)</option>
+                  </select>
+                </div>
+
+                <div class="checkout-field checkout-field-wide">
+                  <label for="account-name">اسم صاحب الحساب</label>
+                  <input
+                    id="account-name"
+                    name="accountName"
+                    type="text"
+                    placeholder="الاسم الكامل كما يظهر في التحويل"
+                    autocomplete="name"
+                    required
+                  />
+                </div>
+
+                <div class="checkout-field checkout-field-wide">
+                  <label for="reference-number"
+                    >الرقم المرجعي <span class="required-star">*</span></label
+                  >
+                  <input
+                    id="reference-number"
+                    name="referenceNumber"
+                    type="text"
+                    placeholder="أدخل الرقم المرجعي هنا"
+                    required
+                  />
+                  <p class="checkout-help">
+                    الرقم المرجعي هو الرقم الموجود في إشعار الدفع.
+                  </p>
+                </div>
+
+                <div class="checkout-field checkout-field-wide">
+                  <label for="receipt"
+                    >إرفاق إيصال الدفع
+                    <span class="required-star">*</span></label
+                  >
+                  <label class="checkout-upload-box" for="receipt">
+                    <input
+                      id="receipt"
+                      name="receipt"
+                      type="file"
+                      accept=".jpg,.jpeg,.png,.pdf"
+                      hidden
+                      required
+                    />
+                    <span class="checkout-upload-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M7 17.5C4.79086 17.5 3 15.7091 3 13.5C3 11.4675 4.51472 9.78871 6.47908 9.53172C6.99234 6.9056 9.30503 5 12.0526 5C15.1552 5 17.7142 7.43285 17.9164 10.4845C19.7092 10.7854 21 12.3432 21 14.1818C21 16.2394 19.3316 17.9078 17.274 17.9078H14.5"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M12 20V11.5"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linecap="round"
+                        />
+                        <path
+                          d="M8.75 14.75L12 11.5L15.25 14.75"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span class="checkout-upload-text" data-upload-text
+                      >انقر لتحميل الملف أو اسحبه هنا</span
+                    >
+                    <small>JPG, PNG, PDF (بحد أقصى 5 MB)</small>
+                  </label>
+                  <p class="checkout-help" data-receipt-help>أرفق صورة أو ملف إيصال الدفع.</p>
+                </div>
+
+                <div class="checkout-field checkout-field-wide">
+                  <label for="payment-notes">ملاحظات إضافية (اختياري)</label>
+                  <textarea
+                    id="payment-notes"
+                    name="paymentNotes"
+                    placeholder="أي تفاصيل أخرى ترغب في إضافتها..."
+                  ></textarea>
+                </div>
+              </div>
+
+              <button class="checkout-submit" type="submit">
+                حفظ وتأكيد البيانات
+              </button>
+            </form>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>© <span data-year></span> نقشة. جميع الحقوق محفوظة.</div>
+        <a class="brand" href="index.html">نقشة</a>
+      </div>
+    </footer>
+
+    <script src="../assets/js/site.js?v=20260509-final"></script>
+    <script src="../assets/js/feedback.js?v=20260509-final"></script>
+    <script type="module" src="../assets/js/payment-page.js"></script>
+    <script type="module" src="../assets/js/user-menu.js"></script>
+  </body>
+</html>

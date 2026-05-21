@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>معلومات الشحن - نقشة</title>
+    <link rel="stylesheet" href="../assets/css/base.css?v=20260511-final" />
+    <link rel="stylesheet" href="../assets/css/feedback.css?v=20260511-final" />
+    <link rel="stylesheet" href="../assets/css/shipping.css?v=20260511-final" />
+  </head>
+  <body class="checkout-page shipping-page">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html">نقشة</a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="فتح القائمة"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          data-nav-toggle
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span class="sr-only">فتح القائمة</span>
+        </button>
+
+        <nav class="nav" id="site-nav" data-nav>
+          <a class="active" href="index.html">الرئيسية</a>
+          <a href="index.html#men">رجال</a>
+          <a href="index.html#women">نساء</a>
+          <a href="index.html#kids">أطفال</a>
+        </nav>
+
+        <div class="icon-links">
+          <a class="icon-btn" href="search.html" aria-label="بحث">⌕</a>
+          <a class="icon-btn" href="cart.html" aria-label="السلة">🛒</a>
+          <div class="user-menu-wrapper">
+            <button id="userMenuButton" class="user-menu-trigger" type="button">
+              <span id="userMenuLabel" class="user-menu-name"
+                >Ibrahim Awad</span
+              >
+              <span class="user-menu-icon">👤</span>
+            </button>
+
+            <div id="userDropdownMenu" class="user-dropdown-menu d-none">
+              <div class="user-dropdown-header">
+                <div id="dropdownUserName" class="dropdown-user-name">
+                  Ibrahim Awad
+                </div>
+                <div id="dropdownUserRole" class="dropdown-user-role">
+                  مستخدم
+                </div>
+              </div>
+
+              <a
+                href="profile.html"
+                id="profileLink"
+                class="user-dropdown-item d-none"
+              >
+                تغيير كلمة السر
+              </a>
+
+              <a
+                href="admin-dash.html"
+                id="adminDashboardLink"
+                class="user-dropdown-item d-none"
+              >
+                لوحة التحكم
+              </a>
+
+              <button
+                id="logoutButton"
+                class="user-dropdown-item logout-item d-none"
+                type="button"
+              >
+                تسجيل الخروج
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="checkout-section">
+      <div class="checkout-page-shell">
+        <div class="checkout-progress" aria-label="مراحل الطلب">
+          <div class="checkout-step">
+            <span class="checkout-step-num is-active">1</span>
+            <span class="checkout-step-label">الشحن</span>
+          </div>
+          <span class="checkout-step-line"></span>
+          <div class="checkout-step">
+            <span class="checkout-step-num is-upcoming">2</span>
+            <span class="checkout-step-label">الدفع</span>
+          </div>
+        </div>
+
+        <div class="checkout-frame shipping-frame">
+          <aside class="checkout-summary card">
+            <h2>تفاصيل الطلب</h2>
+
+            <div class="checkout-summary-items" data-checkout-items></div>
+
+            <div class="checkout-totals">
+              <div class="checkout-total-line">
+                <span>المجموع الفرعي</span>
+                <strong data-checkout-subtotal>0₪</strong>
+              </div>
+              <div class="checkout-total-line">
+                <span>الشحن</span>
+                <strong data-checkout-shipping>0₪</strong>
+              </div>
+              <div class="checkout-total-line">
+                <span>الضريبة المقدرة</span>
+                <strong data-checkout-tax>0₪</strong>
+              </div>
+              <div class="checkout-total-line is-grand">
+                <span>الإجمالي</span>
+                <strong data-checkout-total>0₪</strong>
+              </div>
+            </div>
+
+            <button
+              class="btn checkout-summary-action"
+              type="submit"
+              form="shipping-form"
+            >
+              الانتقال إلى الدفع
+            </button>
+          </aside>
+
+          <section class="checkout-panel card" aria-labelledby="shipping-title">
+            <div class="checkout-panel-head shipping-panel-head">
+              <div>
+                <h1 id="shipping-title">معلومات الشحن</h1>
+                <p>
+                  أدخل تفاصيل التوصيل الخاصة بك للمتابعة إلى الدفع ضمن تجربة
+                  متسقة مع صفحة الدفع والهوية العامة للموقع.
+                </p>
+              </div>
+            </div>
+
+            <form
+              id="shipping-form"
+              class="checkout-form shipping-form"
+              data-shipping-for
+            >
+              <div class="checkout-form-grid">
+                <div class="checkout-field">
+                  <label for="shipping-first-name">الاسم الأول</label>
+                  <input
+                    id="shipping-first-name"
+                    name="firstName"
+                    type="text"
+                    placeholder="ادخل الاسم الاول"
+                    autocomplete="given-name"
+                    required
+                  />
+                </div>
+
+                <div class="checkout-field">
+                  <label for="shipping-last-name">الاسم الأخير</label>
+                  <input
+                    id="shipping-last-name"
+                    name="lastName"
+                    type="text"
+                    placeholder="ادخل الاسم الاخير"
+                    autocomplete="family-name"
+                    required
+                  />
+                </div>
+
+                <div class="checkout-field checkout-field-wide">
+                  <label for="shipping-email">البريد الإلكتروني</label>
+                  <input
+                    id="shipping-email"
+                    name="email"
+                    type="email"
+                    placeholder="ادخل بريدك الإلكتروني"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+
+                <div class="checkout-field">
+                  <label for="shipping-phone">رقم الجوال</label>
+                  <input
+                    id="shipping-phone"
+                    name="phone"
+                    type="tel"
+                    inputmode="tel"
+                    placeholder="0500000000"
+                    autocomplete="tel"
+                    required
+                  />
+                </div>
+
+                <div class="checkout-field">
+                  <label for="shipping-city">المدينة</label>
+                  <select id="shipping-city" name="city" required dir="ltr">
+                    <option> غزة </option>
+                    <option> جباليا </option>
+                    <option> النصيرات </option>
+                    <option> دير البلح </option>
+                    <option> خان يونس </option>
+                    <option> رفح </option>
+                  </select>
+                </div>
+
+                <div class="checkout-field checkout-field-wide">
+                  <label for="shipping-address">عنوان الشارع</label>
+                  <input
+                    id="shipping-address"
+                    name="address"
+                    type="text"
+                    placeholder="رقم المنزل، اسم الشارع، أقرب معلم"
+                    autocomplete="street-address"
+                    required
+                  />
+                </div>
+                <div class="checkout-field checkout-field-wide">
+                  <label for="shipping-notes">ملاحظات إضافية</label>
+                  <textarea
+                    id="shipping-notes"
+                    name="notes"
+                    placeholder="أوقات مفضلة للتواصل أو أي ملاحظات تخص التوصيل..."
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="shipping-actions">
+                <a href="cart.html" class="btn btn-outline">العودة إلى السلة</a>
+                <button type="submit" class="btn">الاستمرار للدفع</button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>© <span data-year></span> نقشة. جميع الحقوق محفوظة.</div>
+        <a class="brand" href="index.html">نقشة</a>
+      </div>
+    </footer>
+
+    <script src="../assets/js/site.js?v=20260509-final"></script>
+    <script type="module" src="../assets/js/shipping-page.js"></script>
+      <script src="../assets/js/feedback.js?v=20260509-final"></script>
+    <script type="module" src="../assets/js/user-menu.js"></script>
+  </body>
+</html>
