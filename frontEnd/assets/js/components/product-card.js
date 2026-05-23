@@ -1,13 +1,41 @@
 import { resolveImageUrl } from "../utils/image.js";
 import { addToCart } from "../api/cart-api.js";
 
+const NETLIFY_IMAGE_CDN_PATH = "/.netlify/images";
+const IS_NETLIFY_HOST = window.location.hostname.includes("netlify.app");
+
+function optimizeImageUrl(imageUrl, width = 420, height = 560) {
+  if (!imageUrl) return imageUrl;
+
+  const url = String(imageUrl);
+
+  if (!IS_NETLIFY_HOST) {
+    return url;
+  }
+
+  if (url.includes(NETLIFY_IMAGE_CDN_PATH)) {
+    return url;
+  }
+
+  if (url.startsWith("data:") || url.startsWith("blob:")) {
+    return url;
+  }
+
+  return `${NETLIFY_IMAGE_CDN_PATH}?url=${encodeURIComponent(url)}&w=${width}&h=${height}&fit=cover`;
+}
 
 function getAvailableVariants(variants = []) {
   return variants.filter((variant) => Number(variant.stock || 0) > 0);
 }
 
 function getUniqueColors(variants = []) {
-  return [...new Set(getAvailableVariants(variants).map((v) => v.color).filter(Boolean))];
+  return [
+    ...new Set(
+      getAvailableVariants(variants)
+        .map((v) => v.color)
+        .filter(Boolean),
+    ),
+  ];
 }
 
 function getUniqueSizesByColor(variants = [], color) {
@@ -33,15 +61,25 @@ function getImageByVariant(images = [], color, size, fallback) {
   const colorMatch = images.find((img) => img.variant_color === color);
   const mainImage = images.find((img) => Number(img.is_main) === 1);
 
-  return exactMatch?.image_url || colorMatch?.image_url || mainImage?.image_url || fallback;
+  return (
+    exactMatch?.image_url ||
+    colorMatch?.image_url ||
+    mainImage?.image_url ||
+    fallback
+  );
 }
 
 function getProductDisplayImage(product) {
   const mainImageFromGallery = product.images?.find(
-    (image) => Number(image.is_main) === 1 && !image.variant_color && !image.variant_size,
+    (image) =>
+      Number(image.is_main) === 1 &&
+      !image.variant_color &&
+      !image.variant_size,
   )?.image_url;
 
-  const anyMainImage = product.images?.find((image) => Number(image.is_main) === 1)?.image_url;
+  const anyMainImage = product.images?.find(
+    (image) => Number(image.is_main) === 1,
+  )?.image_url;
   const firstImage = product.images?.[0]?.image_url;
 
   return (
@@ -75,7 +113,6 @@ function getColorHex(color) {
     Orange: "#f97316",
     Yellow: "#eab308",
     Purple: "#7e22ce",
-    
 
     أسود: "#111111",
     أبيض: "#ffffff",
@@ -182,9 +219,10 @@ export function createProductCard(product) {
       currentSize,
     );
 
-    const isAvailable = Boolean(currentVariant) && Number(currentVariant.stock || 0) > 0;
+    const isAvailable =
+      Boolean(currentVariant) && Number(currentVariant.stock || 0) > 0;
     const currentPrice = currentVariant?.price || product.base_price;
-    const currentImage = hasUserSelectedVariant
+    const rawCurrentImage = hasUserSelectedVariant
       ? getImageByVariant(
           product.images || [],
           currentColor,
@@ -193,14 +231,24 @@ export function createProductCard(product) {
         )
       : getProductDisplayImage(product);
 
+    const currentImage = optimizeImageUrl(
+      resolveImageUrl(rawCurrentImage),
+      420,
+      560,
+    );
+
     const subtitle = product.description || product.category_name || "";
 
     article.innerHTML = `
       <div class="product-image">
         <img
-          src="${resolveImageUrl(currentImage)}"
+          src="${currentImage}"
           alt="${escapeHtml(product.name)}"
           class="product-main-image"
+          loading="lazy"
+          decoding="async"
+          width="420"
+          height="560"
         />
       </div>
 
