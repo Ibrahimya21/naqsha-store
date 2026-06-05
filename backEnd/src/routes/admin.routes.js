@@ -1,8 +1,8 @@
 import express from "express";
 import multer from "multer";
-import path from "path";
-import fs from "fs";
-import { fileURLToPath } from "url";
+import { CloudinaryStorage } from "multer-storage-cloudinary";
+import cloudinary from "../config/cloudinary.js";
+
 import {
   getAllOrders,
   getOrderDetailsForAdmin,
@@ -17,23 +17,16 @@ import {
   getAllProductsForAdmin,
   toggleProductStatusByAdmin,
 } from "../controllers/admin.controller.js";
+
 import { protect } from "../middlewares/auth.middleware.js";
 import { requireAdmin } from "../middlewares/admin.middleware.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const uploadDir = path.resolve(__dirname, "..", "..", "uploads", "products");
-
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
-}
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, uploadDir),
-  filename: (req, file, cb) => {
-    const ext = path.extname(file.originalname);
-    const filename = `product-${Date.now()}-${Math.round(Math.random() * 1e9)}${ext}`;
-    cb(null, filename);
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: "naqsha/products",
+    allowed_formats: ["jpg", "jpeg", "png", "webp"],
+    public_id: () => `product-${Date.now()}-${Math.round(Math.random() * 1e9)}`,
   },
 });
 
@@ -68,6 +61,7 @@ router.put("/categories/:categoryId", updateCategoryByAdmin);
 router.delete("/categories/:categoryId", deleteCategoryByAdmin);
 
 router.get("/products", getAllProductsForAdmin);
+
 router.post(
   "/products/upload-image",
   (req, res, next) => {
@@ -78,6 +72,7 @@ router.post(
           message: error.message || "فشل رفع الصورة",
         });
       }
+
       return next();
     });
   },
@@ -93,11 +88,13 @@ router.post(
       success: true,
       message: "تم رفع الصورة بنجاح",
       data: {
-        image_url: `/uploads/products/${req.file.filename}`,
+        image_url: req.file.path,
+        public_id: req.file.filename,
       },
     });
   },
 );
+
 router.post("/products", createProductByAdmin);
 router.put("/products/:productId", updateProductByAdmin);
 router.patch("/products/:productId/toggle-status", toggleProductStatusByAdmin);

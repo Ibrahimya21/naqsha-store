@@ -245,10 +245,11 @@ export function createProductCard(product) {
           src="${currentImage}"
           alt="${escapeHtml(product.name)}"
           class="product-main-image"
-          loading="lazy"
-          decoding="async"
-          width="420"
-          height="560"
+  loading="lazy"
+  decoding="async"
+  width="420"
+  height="560"
+  onerror="this.onerror=null; this.src='https://dummyimage.com/600x800/eaeaea/666&text=Naqsha';"
         />
       </div>
 
