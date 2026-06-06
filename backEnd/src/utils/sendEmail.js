@@ -10,8 +10,13 @@ const createTransporter = () => {
     port: Number(process.env.SMTP_PORT || 587),
     secure: String(process.env.SMTP_SECURE) === "true",
 
-    // مهم: يجبر الاتصال على IPv4 بدل IPv6
+    // يمنع IPv6 ويستخدم IPv4
     family: 4,
+
+    // لا تترك الطلب يعلّق كثير
+    connectionTimeout: 10000,
+    greetingTimeout: 10000,
+    socketTimeout: 15000,
 
     auth: {
       user: process.env.SMTP_USER,
