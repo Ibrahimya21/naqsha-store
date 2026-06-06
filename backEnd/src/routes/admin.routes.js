@@ -25,7 +25,6 @@ const storage = new CloudinaryStorage({
   cloudinary,
   params: {
     folder: "naqsha/products",
-    allowed_formats: ["jpg", "jpeg", "png", "webp"],
     public_id: () => `product-${Date.now()}-${Math.round(Math.random() * 1e9)}`,
   },
 });
