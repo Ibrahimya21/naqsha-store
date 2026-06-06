@@ -1,27 +1,9 @@
 import { resolveImageUrl } from "../utils/image.js";
 import { addToCart } from "../api/cart-api.js";
 
-const NETLIFY_IMAGE_CDN_PATH = "/.netlify/images";
-const IS_NETLIFY_HOST = window.location.hostname.includes("netlify.app");
 
-function optimizeImageUrl(imageUrl, width = 420, height = 560) {
-  if (!imageUrl) return imageUrl;
-
-  const url = String(imageUrl);
-
-  if (!IS_NETLIFY_HOST) {
-    return url;
-  }
-
-  if (url.includes(NETLIFY_IMAGE_CDN_PATH)) {
-    return url;
-  }
-
-  if (url.startsWith("data:") || url.startsWith("blob:")) {
-    return url;
-  }
-
-  return `${NETLIFY_IMAGE_CDN_PATH}?url=${encodeURIComponent(url)}&w=${width}&h=${height}&fit=cover`;
+function optimizeImageUrl(imageUrl) {
+  return imageUrl;
 }
 
 function getAvailableVariants(variants = []) {
@@ -231,11 +213,7 @@ export function createProductCard(product) {
         )
       : getProductDisplayImage(product);
 
-    const currentImage = optimizeImageUrl(
-      resolveImageUrl(rawCurrentImage),
-      420,
-      560,
-    );
+const currentImage = resolveImageUrl(rawCurrentImage);
 
     const subtitle = product.description || product.category_name || "";
 
