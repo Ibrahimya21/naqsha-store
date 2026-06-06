@@ -2,10 +2,6 @@ import { resolveImageUrl } from "../utils/image.js";
 import { addToCart } from "../api/cart-api.js";
 
 
-function optimizeImageUrl(imageUrl) {
-  return imageUrl;
-}
-
 function getAvailableVariants(variants = []) {
   return variants.filter((variant) => Number(variant.stock || 0) > 0);
 }
@@ -223,11 +219,11 @@ const currentImage = resolveImageUrl(rawCurrentImage);
           src="${currentImage}"
           alt="${escapeHtml(product.name)}"
           class="product-main-image"
-  loading="lazy"
-  decoding="async"
-  width="420"
-  height="560"
-  onerror="this.onerror=null; this.src='https://dummyimage.com/600x800/eaeaea/666&text=Naqsha';"
+          loading="lazy"
+          decoding="async"
+          width="420"
+          height="560"
+          onerror="this.onerror=null; this.src='https://dummyimage.com/600x800/eaeaea/666&text=Naqsha';"
         />
       </div>
 
