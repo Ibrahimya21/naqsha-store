@@ -1,4 +1,7 @@
+import dns from "node:dns";
 import nodemailer from "nodemailer";
+
+dns.setDefaultResultOrder("ipv4first");
 
 const createTransporter = () => {
   if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
@@ -7,13 +10,11 @@ const createTransporter = () => {
 
   return nodemailer.createTransport({
     host: process.env.SMTP_HOST || "smtp.gmail.com",
-    port: Number(process.env.SMTP_PORT || 587),
+    port: Number(process.env.SMTP_PORT || 465),
     secure: String(process.env.SMTP_SECURE) === "true",
 
-    // يمنع IPv6 ويستخدم IPv4
     family: 4,
 
-    // لا تترك الطلب يعلّق كثير
     connectionTimeout: 10000,
     greetingTimeout: 10000,
     socketTimeout: 15000,
