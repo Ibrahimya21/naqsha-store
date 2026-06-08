@@ -162,6 +162,17 @@ function escapeHtml(value) {
     .replace(/'/g, "&#039;");
 }
 
+function isUserLoggedIn() {
+  return Boolean(
+    localStorage.getItem("naqsha.token") || localStorage.getItem("token"),
+  );
+}
+
+function redirectToRegister() {
+  sessionStorage.setItem("naqsha_redirect_after_auth", window.location.href);
+  window.location.href = new URL("./signup.html", window.location.href).href;
+}
+
 export function createProductCard(product) {
   const article = document.createElement("article");
 
@@ -282,35 +293,40 @@ const currentImage = resolveImageUrl(rawCurrentImage);
       });
     });
 
-    const button = article.querySelector("[data-add-to-cart]");
-    button.addEventListener("click", async () => {
-      try {
-        const selectedVariant = getVariantByColorAndSize(
-          product.variants || [],
-          currentColor,
-          currentSize,
-        );
+const button = article.querySelector("[data-add-to-cart]");
+button.addEventListener("click", async () => {
+  if (!isUserLoggedIn()) {
+    redirectToRegister();
+    return;
+  }
 
-        if (!selectedVariant) {
-          showWarning("اختر اللون والمقاس أولًا");
-          return;
-        }
+  try {
+    const selectedVariant = getVariantByColorAndSize(
+      product.variants || [],
+      currentColor,
+      currentSize,
+    );
 
-        if (Number(selectedVariant.stock || 0) <= 0) {
-          showWarning("هذا المقاس أو اللون غير متوفر في المخزون");
-          return;
-        }
+    if (!selectedVariant) {
+      showWarning("اختر اللون والمقاس أولًا");
+      return;
+    }
 
-        await addToCart({
-          product_variant_id: selectedVariant.id,
-          quantity: 1,
-        });
+    if (Number(selectedVariant.stock || 0) <= 0) {
+      showWarning("هذا المقاس أو اللون غير متوفر في المخزون");
+      return;
+    }
 
-        showSuccess("تمت إضافة المنتج إلى السلة");
-      } catch (error) {
-        showError(error.message || "فشل في إضافة المنتج إلى السلة.");
-      }
+    await addToCart({
+      product_variant_id: selectedVariant.id,
+      quantity: 1,
     });
+
+    showSuccess("تمت إضافة المنتج إلى السلة");
+  } catch (error) {
+    showError(error.message || "فشل في إضافة المنتج إلى السلة.");
+  }
+});
   }
 
   render();
