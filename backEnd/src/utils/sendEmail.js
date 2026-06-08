@@ -10,7 +10,7 @@ const createTransporter = () => {
 
   return nodemailer.createTransport({
     host: process.env.SMTP_HOST || "smtp.gmail.com",
-    port: Number(process.env.SMTP_PORT || 465),
+    port: Number(process.env.SMTP_PORT || 587),
     secure: String(process.env.SMTP_SECURE) === "true",
 
     family: 4,
